@@ -1,0 +1,106 @@
+generador-anuncios.html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Anuncios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Generador de Anuncios para Servicios en Pareja</h2>
+
+    <label>Tipo de servicio:</label>
+    <input type="text" id="servicio" placeholder="Ej: Trío con pareja" />
+
+    <label>Público objetivo:</label>
+    <input type="text" id="publico" placeholder="Ej: Hombre solo, Pareja, Mujer" />
+
+    <label>Ubicación:</label>
+    <input type="text" id="ubicacion" placeholder="Ej: Lourdes, Campos Verdes" />
+
+    <label>Precio:</label>
+    <input type="text" id="precio" placeholder="Ej: $65" />
+
+    <label>Horarios:</label>
+    <input type="text" id="horario" placeholder="Ej: Sábados y domingos, 6am - 6pm" />
+
+    <label>Beneficios incluidos:</label>
+    <input type="text" id="beneficios" placeholder="Ej: Motel y preservativos incluidos" />
+
+    <label>Estilo de redacción:</label>
+    <select id="estilo">
+      <option value="provocador">Provocador</option>
+      <option value="elegante">Elegante</option>
+      <option value="directo">Directo</option>
+      <option value="misterioso">Misterioso</option>
+    </select>
+
+    <button onclick="generarAnuncio()">Generar Anuncio</button>
+
+    <label>Resultado:</label>
+    <textarea id="resultado" readonly></textarea>
+  </div>
+
+  <script>
+    function generarAnuncio() {
+      const servicio = document.getElementById('servicio').value;
+      const publico = document.getElementById('publico').value;
+      const ubicacion = document.getElementById('ubicacion').value;
+      const precio = document.getElementById('precio').value;
+      const horario = document.getElementById('horario').value;
+      const beneficios = document.getElementById('beneficios').value;
+      const estilo = document.getElementById('estilo').value;
+
+      let anuncio = "";
+
+      if (estilo === "provocador") {
+        anuncio = `¿Listo para una experiencia diferente? Somos una pareja que disfruta del placer compartido. Ofrecemos ${servicio} para ${publico} en ${ubicacion}. Por solo ${precio}, vive un momento íntimo, seguro y excitante. Disponible ${horario}. ${beneficios}.`;
+      } else if (estilo === "elegante") {
+        anuncio = `Discreción, confianza y pasión. Somos una pareja joven que brinda ${servicio} a ${publico}. Ubicados en ${ubicacion}, ofrecemos un espacio respetuoso, higiénico y cómodo. Precio: ${precio}. Horario: ${horario}. ${beneficios}.`;
+      } else if (estilo === "directo") {
+        anuncio = `${servicio} para ${publico}. Zona: ${ubicacion}. Precio: ${precio}. Horario: ${horario}. ${beneficios}. Escríbenos para agendar.`;
+      } else if (estilo === "misterioso") {
+        anuncio = `Dicen que las mejores experiencias no se anuncian... pero aquí estamos. ${servicio}, exclusivo para ${publico}. En ${ubicacion}, solo los que saben, saben. ${precio}. ${horario}. ${beneficios}. ¿Te atreves?`;
+      }
+
+      document.getElementById('resultado').value = anuncio;
+    }
+  </script>
+</body>
+</html>
